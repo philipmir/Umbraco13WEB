@@ -5,7 +5,7 @@
 	Layout = "Main.cshtml";
 }
 
-@await Html.PartialAsync("header")
-@await Html.PartialAsync("portfolio")
-@await Html.PartialAsync("about")
+@await Html.GetBlockGridHtmlAsync(Model, "headerContent")
+@await Html.GetBlockGridHtmlAsync(Model, "mainContent")
+
 @await Html.PartialAsync("contact")
