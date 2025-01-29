@@ -1,0 +1,205 @@
+# Basics
+
+## show contents of current directory
+
+dir
+
+ls
+
+
+## navigate to a folder in the current directory
+
+cd demo
+
+
+## navigate to a folder starting with umb
+
+cd umb*
+
+
+## create a new directory
+
+mkdir test
+
+
+## remove the directory
+
+rm .\UmbracoSpark\
+
+
+## Open a folder in vscode
+
+code .
+
+
+## Dotnet CLI
+
+dotnet --info
+
+
+## Build
+
+dotnet build
+
+
+## Run
+
+dotnet run
+
+
+## Open in Code
+
+code .
+
+
+## Open in Explorer
+
+explorer .
+
+
+## Run
+
+
+dotnet run
+
+
+## Run with Hot Reload
+
+dotnet watch run
+
+
+# Nuget Sources
+
+## List
+
+
+dotnet nuget list source
+
+
+## Add 
+
+
+dotnet nuget add source -n test "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\2"
+
+
+## Disable 
+
+
+dotnet nuget disable source nuget.org
+
+
+## Enable 
+
+
+dotnet nuget enable source nuget.org
+
+
+## Installing Umbraco
+
+
+# Ensure we have the correct version of Umbraco templates
+
+dotnet new install Umbraco.Templates
+
+
+## Umbraco Template 
+
+# Install Umbraco
+
+dotnet new umbraco --force -n "UmbracoSpark"
+
+
+## Unattended install 
+
+
+dotnet new umbraco --force -n "UmbracoSpark" --friendly-name "Administrator" --email "admin@example.com" --password "1234567890" --development-database-type SQLite
+
+
+
+dotnet new umbraco --force -n "UmbracoSpark" --friendly-name "Administrator" --email "admin@example.com" --password "1234567890" --development-database-type SQLite
+dotnet sln add "MyProject"
+
+
+## adding packages
+
+
+#Add starter kit
+dotnet add "MyProject" package clean
+
+dotnet run --project "MyProject"
+
+
+#Running
+
+## Editor Config
+
+
+dotnet new editorconfig
+
+
+## Add this line
+
+csharp_style_namespace_declarations = file_scoped:warning
+
+
+## Format
+
+dotnet format
+
+
+## Restore
+
+dotnet restore
+
+
+## uSync CLI
+
+### Install uSync.Commands
+
+
+dotnet tool install uSync.Cli -g
+
+dotnet add package uSync
+
+dotnet add package uSync.Commands
+
+
+### Generate a key for the commands
+
+uSync key-gen
+
+
+### Add this to the appSettings.json file
+
+  ,
+  "uSync": {
+    "Commands": {
+      "Enabled": "hmac",
+      "key": "NOPkZIiX/BGnSiR41Fy4ZfqIfhMhWUbGXSMt4Si/ez4="
+    }
+  }
+
+
+### Reload Memory Cache
+
+uSync run reload-memcache -p index=ExternalIndex -s https://localhost:44341/umbraco -k NOPkZIiX/BGnSiR41Fy4ZfqIfhMhWUbGXSMt4Si/ez4=
+
+
+### Rebuild Index
+
+usync run Rebuild-Index -p index=ExternalIndex -s https://localhost:44341/umbraco -k NOPkZIiX/BGnSiR41Fy4ZfqIfhMhWUbGXSMt4Si/ez4=
+
+
+### Rebuild DB Cache
+
+usync run Rebuild-DBCache -s https://localhost:44341/umbraco -k NOPkZIiX/BGnSiR41Fy4ZfqIfhMhWUbGXSMt4Si/ez4=
+
+
+## Create Umbraco Package
+
+dotnet new umbracopackage -n MyPackageName
+
+
+## Create test site for the package 
+
+dotnet new umbraco --force -n "MyPackageName.Site" --friendly-name "Administrator" --email "admin@example.com" --password "1234567890" --development-database-type SQLite -p "MyPackageName"
