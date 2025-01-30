@@ -10,6 +10,9 @@
     <PackageReference Include="Our.Umbraco.TagHelpers" Version="1.2.0" />
     <PackageReference Include="Umbraco.Cms" Version="13.5.2" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="1.8.4" />
+    <PackageReference Include="Our.Umbraco.TheDashboard" Version="13.0.1" />
+    <PackageReference Include="Skybrud.Umbraco.Redirects" Version="13.0.4" />
+    <PackageReference Include="uSync" Version="13.2.4" />
   </ItemGroup>
 
   <ItemGroup>
