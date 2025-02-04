@@ -67,10 +67,11 @@ public class SearchService : ISearchService
                 ), BooleanOperation.Or);
         }
 
-        if (searchRequest.SelectedTags != null)
+        if (searchRequest.SelectedTags != null && searchRequest.SelectedTags.Any())
         {
             query.And().GroupedOr(["tags"], searchRequest.SelectedTags);
         }
+
 
         ISearchResults? pageOfResults = query.Execute(new QueryOptions(searchRequest.Skip, searchRequest.PageSize));
 
